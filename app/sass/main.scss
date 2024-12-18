@@ -1,8 +1,8 @@
 // mixins
-@use './mixins/layouts';
+@forward './mixins/layouts';
 // variables
-@use './variables/variables';
+@forward './variables/variables';
 // functions
-@use './functions/normalizer';
+@forward './functions/normalizer';
 // components
-@use './components/components';
+@forward './components/components';
