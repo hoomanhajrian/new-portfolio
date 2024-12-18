@@ -1,0 +1,46 @@
+.card-container .MuiTypography-root {
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: 30% 70%;
+  grid-template-columns: 1fr;
+  @include for-tablet-landscape-up {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .MuiCard-root {
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .MuiTypography-body2 {
+    grid-template-columns: 1fr;
+    font-size: 1.3rem;
+  }
+}
+
+.card-container .MuiTypography-gutterBottom {
+  display: block;
+}
+
+.card-scroll-bar {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.1rem;
+    margin-left: 0.2rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

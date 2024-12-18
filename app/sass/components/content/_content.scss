@@ -1,0 +1,172 @@
+.skills_table {
+  max-width: 90%;
+  text-align: left;
+  padding: 0;
+  display: grid;
+  margin-right: auto;
+  list-style-type: none;
+  margin-left: auto;
+  width: 80%;
+  @include for-phone-only {
+    width: 80%;
+    grid-template-columns: 1fr;
+  }
+  @include for-tablet-landscape-up {
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+  }
+  li {
+    font-size: 0.9rem;
+    span {
+      @include for-phone-only {
+        display: none;
+      }
+    }
+  }
+}
+
+.projects {
+  .projects-header {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 0;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    grid-gap: 2rem;
+    .project-card {
+      margin-bottom: 2rem;
+      background-color: #d3e1e3;
+      animation: cardAnimationAppearance 2s 1;
+      margin: 0;
+      :hover {
+        background-color: darken(#d3e1e3, 60);
+        color: white;
+        .project-card-text {
+          color: white;
+        }
+        .project-card-description {
+          color: white;
+        }
+        .project-card-link {
+          color: white;
+        }
+      }
+      .project-card-link {
+        :hover {
+          color: lightblue;
+        }
+      }
+      .project-card-content {
+        margin: 0;
+        padding: 1rem;
+        height: 100%;
+      }
+    }
+    .project-card-text {
+      margin-bottom: 0.5rem;
+    }
+    .project-card-description {
+      padding: 1rem 0.5rem 0 0;
+      font-size: 1rem;
+    }
+    @include for-tablet-landscape-up {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+    @include for-desktop-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.MuiButtonBase-root,
+.MuiCardActionArea-root {
+  height: 100%;
+}
+
+.work {
+  margin: 0;
+  padding: 0;
+  .work-title {
+    text-align: center;
+  }
+  .work-card-container {
+    margin-right: auto;
+    margin-left: auto;
+    @include for-tablet-landscape-up {
+      max-width: 60%;
+    }
+    @include for-tablet-portrait-up {
+      max-width: 80%;
+    }
+    @include for-phone-only {
+      width: 80%;
+    }
+    .work-card {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+  button:hover {
+    transition: 2000ms;
+  }
+}
+
+.education {
+  .education-title {
+    text-align: center;
+  }
+  .education-card-continer {
+    margin-right: auto;
+    margin-left: auto;
+    @include for-tablet-landscape-up {
+      max-width: 60%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1rem;
+    }
+    @include for-tablet-portrait-up {
+      max-width: 80%;
+    }
+    @include for-phone-only {
+      width: 80%;
+    }
+    .education-card {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+  .education-card:hover {
+    transition: 2000ms;
+  }
+}
+
+.docker-code {
+  color: white;
+  background-color: #666;
+  border-radius: 15px;
+  display: block;
+  padding: 1rem;
+}
+
+.resume {
+  .cards-container {
+    display: grid;
+    grid-template-columns: 27% 73%;
+    @include for-phone-only {
+      grid-template-columns: 45% 55%;
+    }
+    @include for-tablet-landscape-up {
+      grid-template-columns: 20% 80%;
+    }
+  }
+  .resume-header {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+  }
+}

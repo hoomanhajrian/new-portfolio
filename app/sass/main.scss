@@ -1,0 +1,20 @@
+@import './normalizer';
+@import "~bootstrap/scss/bootstrap";
+@import './app';
+@import './typography';
+@import './functions';
+@import './animations';
+@import './mixins/layouts';
+@import './variables/variables';
+@import './components/tabs/tabs';
+@import './components/card/card';
+
+@import './components/header/header';
+@import './components/content/content';
+@import './components/footer/footer';
+@import './components/tabs/about';
+@import './components/bars/progress';
+@import './components/menu/menu';
+@import './components/tabs/showoff';
+@import './components/sliders/sliders';
+@import './components/marker/marker';
