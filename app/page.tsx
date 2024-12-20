@@ -1,6 +1,9 @@
+import {Projects} from './components/portfolio/Projects';
 
-export default function Projects() {
+export default function Portfolio() {
   return (
-  <div></div>
+  <div>
+    <Projects/>
+  </div>
   );
 }
