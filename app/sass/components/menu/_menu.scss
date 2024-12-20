@@ -1,4 +1,28 @@
 @use '../../variables/variables' as variables;
-.menu{
+
+.menu {
     background-color: variables.$lblue;
+
+    .nav-container {
+        .navbar-brand {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .navbar-items {
+            width: 100%;
+
+            .nav-items-wrapper {
+                width: 100%;
+                justify-content: space-around;
+                align-items: center;
+
+                .nav-item:hover {
+                    color: variables.$orange !important;
+                }
+            }
+        }
+    }
 }

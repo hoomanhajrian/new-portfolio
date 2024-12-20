@@ -91,74 +91,73 @@ export const Header = () => {
         fixed="top"
         collapseOnSelect
       >
-        <Container fluid className="flex flex-col md:flex-row justify-start">
-          <div className="w-100 flex flex-row align-middle justify-between">
-            <Navbar.Brand
-              href="/"
-              className="flex flex-col md:flex-row align-middle justify-between items-center"
-            >
-              <Image
-                priority
-                alt="Hooman Hajarian"
-                src="/logo.png"
-                width={70}
-                height={70}
-                className="mr-auto ml-auto pt-2"
-              />
-              <h1 className="text-2xl md:text-3xl text-myRed text-center w-100">
-               Hooman Hajarian</h1>
-            </Navbar.Brand>
-            <Navbar.Toggle
-              style={{ background: "#e0e6ed" }}
-              aria-controls="basic-navbar-nav"
-              className="mr-10 mt-auto mb-auto"
-              id="navToggle"
+        <Container fluid className="nav-container">
+
+          <Navbar.Brand
+            href="/"
+            className="navbar-brand"
+          >
+            <Image
+              priority
+              alt="Hooman Hajarian"
+              src="/logo.png"
+              width={80}
+              height={80}
+              className="mr-auto ml-auto pt-2"
             />
-          </div>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav
-              navbarScroll
-              className="w-100 flex flex-col justify-center gap-2 mr-0 lg:mr-20 align-middle text-center md:flex-row md:justify-around whitespace-nowrap"
-            >
+            <h1>Hooman Hajarian</h1>
+          </Navbar.Brand>
+          <Navbar.Toggle
+            style={{ background: "#e0e6ed" }}
+            aria-controls="basic-navbar-nav"
+            className="mr-10 mt-auto mb-auto"
+            id="navToggle"
+          />
+          <Navbar.Collapse className="navbar-items" id="basic-navbar-nav">
+            <Nav className="nav-items-wrapper">
               <Nav.Link
                 style={{
                   color:
                     activeLink === "/" || activeLink === "/"
-                      ? "#15253c"
-                      : "#e0e6ed"
+                      ? "#F28500"
+                      : "#e0e6ed",
+                  fontWeight: activeLink === "/" ? "bold" : "lighter",
                 }}
                 active={activeLink === "/" || activeLink === "/"}
-                className="nav-link"
+                className="nav-item"
                 href="/"
               >
                 Projects
               </Nav.Link>
               <Nav.Link
                 style={{
-                  color: activeLink === "/resume" ? "#15253c" : "#e0e6ed",
+                  color: activeLink === "/resume" ? "#F28500" : "#e0e6ed",
+                  fontWeight: activeLink === "/resume" ? "bold" : "lighter",
                 }}
                 active={activeLink === "/resume"}
-                className="text-myWhite md:hover:!text-myRed"
+                className="nav-item"
                 href="/resume"
               >
                 Resume
               </Nav.Link>
               <Nav.Link
                 style={{
-                  color: activeLink === "/showoff" ? "#15253c" : "#e0e6ed",
+                  color: activeLink === "/showoff" ? "#F28500" : "#e0e6ed",
+                  fontWeight: activeLink === "/showoff" ? "bold" : "lighter",
                 }}
                 active={activeLink === "/showoff"}
-                className="text-myWhite md:hover:!text-myRed"
+                className="nav-item"
                 href="/showoff"
               >
                 Showoff
               </Nav.Link>
               <Nav.Link
                 style={{
-                  color: activeLink === "/about" ? "#15253c" : "#e0e6ed",
+                  color: activeLink === "/about" ? "#F28500" : "#e0e6ed",
+                  fontWeight: activeLink === "/about" ? "bold" : "lighter",
                 }}
                 active={activeLink === "/about"}
-                className="text-myWhite md:hover:!text-myRed animate-pulse"
+                className="nav-item"
                 href="/about"
               >
                 About & Contact
