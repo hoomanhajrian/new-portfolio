@@ -1,33 +1,38 @@
 "use client";
-import { useEffect, useState } from "react";
-// import { Canvas, useLoader } from "@react-three/fiber";
-// import { OrbitControls, Plane } from "@react-three/drei";
-// import { Physics, RigidBody } from "@react-three/rapier";
+import { Suspense, useEffect, useState } from "react";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { OrbitControls, Plane } from "@react-three/drei";
+import { Physics, RigidBody } from "@react-three/rapier";
 import Project2DCard from "./Project2DCard";
 import { Button } from "antd";
-import { TextureLoader } from 'three/src/loaders/TextureLoader'
-// import Project3DCard from "./Project3DCard";
-// import Button2D from './Button3D';
-// import Switch from "./Switch";
-// import Television from "./Television";
-// import { Table } from "./Table";
-// import { AboutWall } from "./AboutWall";
+import { ProjectDataType } from "@/types";
+import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { TextureLoader } from "three";
+import Project3DCard from "./Project3DCard";
+import Button3D from './Button3D';
+import Switch from "./Switch";
+import Television from "./Television";
+import { Table } from "./Table";
+import { AboutWall } from "./AboutWall";
 
 export const Projects = () => {
+  // states
   const [projects, showProjects] = useState(false);
   const [about, showAbout] = useState(false);
   const [switchState, updateSwitch] = useState(false);
   const [view3D, update3D] = useState(false);
+  // mouse coords
+  const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
   // loading textures
-  // const [wallTexture, wallRoughness, groundTexture, groundRoughness] = useLoader(TextureLoader, ["/textures/wall/brick-wall.jpg", "/textures/wall/brick-wall-rough.jpg"
-  //   , "/textures/ground/asphalt.jpg", "/textures/ground/asphalt-rough.jpg"])
+  const [wallTexture, wallRoughness, groundTexture, groundRoughness] = useLoader(TextureLoader, ["/textures/wall/brick-wall.jpg", "/textures/wall/brick-wall-rough.jpg"
+    , "/textures/ground/asphalt.jpg", "/textures/ground/asphalt-rough.jpg"])
   // screen dimentions
   const [screenDimention, updateScreenDimentions] = useState({
     width: 0,
     height: 0,
   });
-  // mouse coords
-  const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
+
+
   useEffect(() => {
     updateScreenDimentions({
       width: window.innerWidth,
@@ -40,7 +45,7 @@ export const Projects = () => {
       });
     };
 
-    const handleWindowMouseMove = (event) => {
+    const handleWindowMouseMove = (event: MouseEvent) => {
       setGlobalCoords({
         x: event.screenX,
         y: event.screenY,
@@ -58,7 +63,7 @@ export const Projects = () => {
 
 
 
-  // if (screenDimention.width <= 1200 || view3D) {
+  if (screenDimention.width <= 1200 || view3D) {
     return (
       <div className="projects">
         <h2 className="projects-header">Project Experience</h2>
@@ -73,107 +78,27 @@ export const Projects = () => {
           3D View (Desktop Only)
         </Button>
         <div className="cards-container">
-          {projectsData.map((data) => {
-            return <Project2DCard key={data.id} data={data} update3D={update3D} />;
+          {projectsData.map((data: ProjectDataType) => {
+            return <Project2DCard key={data.id} data={data} />;
           })}
         </div>
       </div>
     );
-  // } else {
-  //   return (
-
-  //     <Canvas
-  //       shadows
-  //       camera={{ position: [0, 6, 50], fov: 55 }}
-  //       style={{
-  //         width: "100%",
-  //         height: "90vh",
-  //         background: 'black',
-  //       }}
-  //     >
-
-
-  //       <Physics>
-  //         {/* <OrbitControls /> */}
-
-  //         <ambientLight intensity={switchState ? 0.2 : 1} />
-  //         {/* The TV */}
-  //         <Television />
-  //         {/* table */}
-
-  //         {/* buttons */}
-  //         {/* projects button */}
-  //         <Button2D text="Go Back" func={() => { showProjects(false) }} projects={projects} position={[32.5, 16, 35]} textPos={[-0.5, -0.65, -2.5]} rotation={[0, -Math.PI / 2, 0]} args={[1, 3, 8]} />
-  //         <Button2D text="Go Back" func={() => { showAbout(false) }} projects={projects} position={[-32.5, 10, 35]} textPos={[0.5, -0.65, 2.5]} rotation={[0, Math.PI / 2, 0]} args={[1, 3, 8]} />
-  //         {/* projects button */}
-  //         <Button2D text="View Projects" func={() => { showProjects(true) }} projects={projects} position={[25, -1, 1]} textPos={[-4, -0.5, 1]} rotation={[0, 0, 0]} args={[8, 3, 1]} />
-  //         {/* about button */}
-  //         <Button2D text="About Me" func={() => { showAbout(true) }} projects={projects} about={about} position={[-25, -6, 1]} textPos={[-2, -0.4, 1]} rotation={[0, 0, 0]} args={[8, 3, 1]} />
-  //         {/* button */}
-  //         <Button2D text="2D Version" func={() => { update3D(true) }} position={[25, 5, 1]} textPos={[-3, -0.5, 1]} rotation={[0, 0, 0]} args={[8, 3, 1]} />
-  //         {/* light switch */}
-  //         <Switch position={[-25, 0, 0]} updateSwitch={updateSwitch} switchState={switchState} />
-  //         {/* walls and ground*/}
-
-
-  //         <RigidBody type="fixed">
-  //           <group receiveShadow>
-  //             {/* tv wall */}
-  //             <Plane
-  //               receiveShadow
-  //               position={[0, 0, 0]}
-  //               args={[65, 30]} // Width, height, depth. Default is [1, 1, 1]
-  //             >
-  //               <meshPhongMaterial map={wallTexture} bumpMap={wallRoughness} bumpScale={1.3} />
-  //             </Plane>
-  //             {/* oposite tv wall */}
-  //             <Plane
-  //               receiveShadow
-  //               position={[0, 0, 75]}
-  //               rotation={[-Math.PI, 0, 0]}
-  //               args={[65, 30]} // Width, height, depth. Default is [1, 1, 1]
-  //             >
-  //               <meshPhongMaterial map={wallTexture} bumpMap={wallRoughness} bumpScale={1.3} />
-  //             </Plane>
-  //             {/* projects wall */}
-  //             <Plane
-  //               receiveShadow
-  //               position={[32.5, 0, 32.5]}
-  //               rotation={[0, -Math.PI / 2, 0]}
-  //               args={[90, 30]} // Width, height, depth. Default is [1, 1, 1]
-  //             >
-  //               <meshPhongMaterial map={wallTexture} bumpMap={wallRoughness} bumpScale={1.3} />
-  //             </Plane>
-  //             {/* oposite projects wall */}
-  //             <Plane
-  //               receiveShadow
-  //               position={[-32.5, 0, 32.5]}
-  //               rotation={[0, Math.PI / 2, 0]}
-  //               args={[90, 30]} // Width, height, depth. Default is [1, 1, 1]
-  //             >
-  //               <meshPhongMaterial map={wallTexture} bumpMap={wallRoughness} bumpScale={1.3} />
-  //             </Plane>
-  //             {/* ground */}
-  //             <Plane
-  //               receiveShadow
-  //               position={[0, -15, 32.5]}
-  //               rotation={[-Math.PI / 2, 0, 0]}
-  //               args={[65, 90]} // Width, height, depth. Default is [1, 1, 1]
-  //             >
-  //               <meshPhongMaterial map={groundTexture} bumpMap={groundRoughness} bumpScale={1.3} />
-  //             </Plane>
-  //           </group>
-  //         </RigidBody>
-  //         {projectsData.map((item) => {
-  //           return <Project3DCard key={item.id} data={item} globalCoords={globalCoords} screenDimention={screenDimention} />
-  //         })}
-  //         {/* about wall */}
-  //         <AboutWall />
-  //         <Table />
-  //       </Physics>
-  //     </Canvas>
-  //   );
-  // }
+  } else {
+    return (
+        <Canvas
+          shadows
+          camera={{ position: [0, 6, 50], fov: 55 }}
+          style={{
+            width: "100%",
+            height: "90vh",
+            background: 'black',
+          }}
+        >
+          <OrbitControls/>
+        </Canvas>
+    );
+  }
 };
 
 
@@ -338,3 +263,5 @@ const projectsData = [
   },
 
 ];
+
+
