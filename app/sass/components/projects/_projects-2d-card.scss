@@ -1,0 +1,15 @@
+@use '../../mixins/layouts' as l;
+@use '../../variables/variables' as v;
+.project-card{
+  margin: 2rem 0;
+  background-color: v.$lblue !important;
+  color: v.$dblue !important;
+  a{
+    color: v.$dblue !important;
+    margin: .5rem;
+    margin-left: 0;
+    :hover{
+      color:v.$orange !important;
+    }
+  }
+}
