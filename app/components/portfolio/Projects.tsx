@@ -1,12 +1,12 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls, Plane } from "@react-three/drei";
+import { OrbitControls, Plane, RoundedBox } from "@react-three/drei";
 import { Physics, RigidBody } from "@react-three/rapier";
-import Project2DCard from "./Project2DCard";
+import {Project2DCard} from "./Project2DCard";
 import { Button } from "antd";
 import { ProjectDataType } from "@/types";
-import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import { AmbientLight, MeshBasicMaterial, MeshStandardMaterial } from "three";
 import { TextureLoader } from "three";
 import Project3DCard from "./Project3DCard";
 import Button3D from './Button3D';
@@ -16,18 +16,10 @@ import { Table } from "./Table";
 import { AboutWall } from "./AboutWall";
 
 export const Projects = () => {
-  // states
-  const [projects, showProjects] = useState(false);
-  const [about, showAbout] = useState(false);
-  const [switchState, updateSwitch] = useState(false);
-  const [view3D, update3D] = useState(false);
   // mouse coords
-  const [globalCoords, setGlobalCoords] = useState({ x: 0, y: 0 });
-  // loading textures
-  const [wallTexture, wallRoughness, groundTexture, groundRoughness] = useLoader(TextureLoader, ["/textures/wall/brick-wall.jpg", "/textures/wall/brick-wall-rough.jpg"
-    , "/textures/ground/asphalt.jpg", "/textures/ground/asphalt-rough.jpg"])
+  const [globalCoords, setGlobalCoords] = useState<{x:number,y:number}>({ x: 0, y: 0 });
   // screen dimentions
-  const [screenDimention, updateScreenDimentions] = useState({
+  const [screenDimention, updateScreenDimentions] = useState<{width:number,height:number}>({
     width: 0,
     height: 0,
   });
@@ -63,20 +55,14 @@ export const Projects = () => {
 
 
 
-  if (screenDimention.width <= 1200 || view3D) {
+  useEffect(()=>{
+    console.log(globalCoords);
+  },[globalCoords]);
+
+  if (screenDimention.width <= 900 ) {
     return (
       <div className="projects">
-        <h2 className="projects-header">Project Experience</h2>
-        <Button
-          disabled={screenDimention.width <= 1200}
-          type="primary"
-          style={{ marginRight: "auto", marginLeft: "auto", display: "block" }}
-          onClick={() => {
-            update3D(false);
-          }}
-        >
-          3D View (Desktop Only)
-        </Button>
+        <h2>Project Experience</h2>
         <div className="cards-container">
           {projectsData.map((data: ProjectDataType) => {
             return <Project2DCard key={data.id} data={data} />;
@@ -92,17 +78,24 @@ export const Projects = () => {
           style={{
             width: "100%",
             height: "90vh",
-            background: 'black',
+            background: 'white',
           }}
         >
-          <OrbitControls/>
+          {/* <OrbitControls/> */}
+          <ambientLight color={'red'} intensity={1.5}/>
+          <RoundedBox
+          args={[1,2,3]}
+          position={[0,0,0]}
+          >
+            <meshStandardMaterial color={'red'}/>
+          </RoundedBox>
         </Canvas>
     );
   }
 };
 
 
-const projectsData = [
+const projectsData : ProjectDataType[] = [
   {
     id: 0,
     name: "Go Hike",
