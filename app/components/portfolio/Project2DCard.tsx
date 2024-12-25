@@ -37,14 +37,7 @@ export const Project2DCard = ({ data }: { data: ProjectDataType }) => {
         >
           {description}
         </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-          }}
-          component={'div'}
-        >
+        <div className="projects-card-links">
           <Typography
             variant="body2"
             color="textSecondary"
@@ -67,7 +60,7 @@ export const Project2DCard = ({ data }: { data: ProjectDataType }) => {
           >
             <LanguageIcon sx={{fontSize:'2rem'}} />
           </Typography>
-        </Box>
+        </div>
       </CardContent>
     </Card>
   );

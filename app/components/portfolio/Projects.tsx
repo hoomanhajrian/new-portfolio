@@ -1,25 +1,12 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls, Plane, RoundedBox } from "@react-three/drei";
-import { Physics, RigidBody } from "@react-three/rapier";
-import {Project2DCard} from "./Project2DCard";
-import { Button } from "antd";
+import { useEffect, useState,createContext } from "react";
+import { Project3D } from "./Project3D";
 import { ProjectDataType } from "@/types";
-import { AmbientLight, MeshBasicMaterial, MeshStandardMaterial } from "three";
-import { TextureLoader } from "three";
-import Project3DCard from "./Project3DCard";
-import Button3D from './Button3D';
-import Switch from "./Switch";
-import Television from "./Television";
-import { Table } from "./Table";
-import { AboutWall } from "./AboutWall";
+import { Project2D } from "./Project2D";
 
 export const Projects = () => {
-  // mouse coords
-  const [globalCoords, setGlobalCoords] = useState<{x:number,y:number}>({ x: 0, y: 0 });
   // screen dimentions
-  const [screenDimention, updateScreenDimentions] = useState<{width:number,height:number}>({
+  const [screenDimention, updateScreenDimentions] = useState<{ width: number, height: number }>({
     width: 0,
     height: 0,
   });
@@ -36,66 +23,28 @@ export const Projects = () => {
         height: window.innerHeight,
       });
     };
-
-    const handleWindowMouseMove = (event: MouseEvent) => {
-      setGlobalCoords({
-        x: event.screenX,
-        y: event.screenY,
-      });
-    };
-
     window.addEventListener("resize", screenSizeHandler);
-    window.addEventListener("mousemove", handleWindowMouseMove);
-
     return () => {
       window.removeEventListener("resize", screenSizeHandler);
-      window.removeEventListener("mousemove", handleWindowMouseMove);
     };
   }, []);
 
 
+  // render on screen size
 
-  useEffect(()=>{
-    console.log(globalCoords);
-  },[globalCoords]);
-
-  if (screenDimention.width <= 900 ) {
+  if (screenDimention.width <= 900) {
     return (
-      <div className="projects">
-        <h2>Project Experience</h2>
-        <div className="cards-container">
-          {projectsData.map((data: ProjectDataType) => {
-            return <Project2DCard key={data.id} data={data} />;
-          })}
-        </div>
-      </div>
+      <Project2D projectsData={appData}/>
     );
   } else {
     return (
-        <Canvas
-          shadows
-          camera={{ position: [0, 6, 50], fov: 55 }}
-          style={{
-            width: "100%",
-            height: "90vh",
-            background: 'white',
-          }}
-        >
-          {/* <OrbitControls/> */}
-          <ambientLight color={'red'} intensity={1.5}/>
-          <RoundedBox
-          args={[1,2,3]}
-          position={[0,0,0]}
-          >
-            <meshStandardMaterial color={'red'}/>
-          </RoundedBox>
-        </Canvas>
+      <Project3D projectsData={appData}/>
     );
   }
 };
 
 
-const projectsData : ProjectDataType[] = [
+const appData : ProjectDataType[] = [
   {
     id: 0,
     name: "Go Hike",
@@ -256,5 +205,7 @@ const projectsData : ProjectDataType[] = [
   },
 
 ];
+
+
 
 
