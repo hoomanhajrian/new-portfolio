@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState,createContext } from "react";
+import { useEffect, useState } from "react";
 import { Project3D } from "./Project3D";
 import { ProjectDataType } from "@/types";
 import { Project2D } from "./Project2D";
@@ -34,17 +34,17 @@ export const Projects = () => {
 
   if (screenDimention.width <= 900) {
     return (
-      <Project2D projectsData={appData}/>
+      <Project2D projectsData={appData} />
     );
   } else {
     return (
-      <Project3D projectsData={appData}/>
+      <Project3D projectsData={appData} />
     );
   }
 };
 
 
-const appData : ProjectDataType[] = [
+const appData: ProjectDataType[] = [
   {
     id: 0,
     name: "Go Hike",
@@ -55,7 +55,8 @@ const appData : ProjectDataType[] = [
       "Cordova-based mobile application that shows the hiking trails around the user and the user is able to see the route to the trail and the trail route itself on the map.",
     imgUrl: "/img/gohike.jpg",
     gitHub: "https://github.com/costa-rodrigo/goHike",
-    position3D: [32.5, 7, 10],
+    position3D: [5, 0, 0],
+    rotation: [0, 0, 0]
   },
   {
     id: 1,
@@ -67,7 +68,8 @@ const appData : ProjectDataType[] = [
       "Java based mobile application that help farmers share their products and consumers are able to put an order for pick up or delivery.",
     imgUrl: "/img/farmerfresh.jpg",
     gitHub: "https://github.com/hoomanhajrian/FarmerFresh_android-app",
-    position3D: [32.5, 7, 20],
+    position3D: [4.6, 0, 1.93],
+    rotation: [0, -0.48, 0]
   },
   {
     id: 2,
@@ -79,7 +81,8 @@ const appData : ProjectDataType[] = [
       "Online Platform for kids to learn, how to fix injuries in case of emergency. This platform was based on React Technology with the back end on AWS servers.",
     imgUrl: "/img/patchapp.jpg",
     gitHub: "https://github.com/costa-rodrigo/patch-frontend",
-    position3D: [32.5, 7, 30],
+    position3D: [3.65, 0, 3.54],
+    rotation: [0, -0.96, 0]
   },
 
   {
@@ -92,7 +95,8 @@ const appData : ProjectDataType[] = [
       "React based application using movie API and more features such as watching and commenting on the movies will be added later.",
     imgUrl: "/img/movie-time.jpg",
     gitHub: "https://github.com/hoomanhajrian/Moive-app",
-    position3D: [32.5, 7, 40],
+    position3D: [2.16, 0, 4.66],
+    rotation: [0, -1.44, 0]
   },
   {
     id: 4,
@@ -104,7 +108,8 @@ const appData : ProjectDataType[] = [
       "We are here to make sure your event planning will go as perfect as it can be with the least affort using this platform. You can estimate your event total cost and book appointment for consultation about your event.",
     imgUrl: "/img/wedding.jpg",
     gitHub: "https://github.com/hoomanhajrian/EventPlanner",
-    position3D: [32.5, 7, 50],
+    position3D: [0.38, 0, 4.98],
+    rotation: [0, -1.92, 0]
   },
   {
     id: 5,
@@ -116,7 +121,8 @@ const appData : ProjectDataType[] = [
       "Platform for customizing your own business card and ordering it with QR code and NFC features that you can add to your card.",
     imgUrl: "/img/card-creator.jpg",
     gitHub: "https://github.com/hoomanhajrian/card-creator",
-    position3D: [32.5, 7, 60],
+    position3D: [-1.46, 0, 4.54],
+    rotation: [0, -2.4, 0],
   },
   {
     id: 6,
@@ -128,7 +134,8 @@ const appData : ProjectDataType[] = [
       "Online store for selling industrial kitchen equipment coded fully in React using Redux and many other libraries.(Site in farsi language)",
     imgUrl: "/img/tajhizaras.jpg",
     gitHub: "https://github.com/hoomanhajrian/tajhizaras",
-    position3D: [32.5, -7, 10],
+    position3D: [-3.07, 0, 3.71],
+    rotation: [0, -2.88, 0],
   },
   {
     id: 7,
@@ -140,7 +147,8 @@ const appData : ProjectDataType[] = [
       "Online web application for small stores accounting and inventory management using React(TypeScript) and Nodejs",
     imgUrl: "/img/hesab.jpg",
     gitHub: "https://github.com/hoomanhajrian/hesabketab",
-    position3D: [32.5, -7, 20],
+    position3D: [-4.23, 0, 2.47],
+    rotation: [0, -3.36, 0]
   },
   {
     id: 8,
@@ -152,7 +160,8 @@ const appData : ProjectDataType[] = [
       "Web site for photographer introduction and portfolio and resume using Nextjs and Nodejs.",
     imgUrl: "/img/lapsemoon.jpeg",
     gitHub: "https://github.com/hoomanhajrian/lapsemoon",
-    position3D: [32.5, -7, 30],
+    position3D: [-4.86, 0, 0.88],
+    rotation: [0, -3.84, 0]
   },
   {
     id: 9,
@@ -164,7 +173,8 @@ const appData : ProjectDataType[] = [
       "Online Platform to connect web customers to Amazon Market place and the business social media.",
     imgUrl: "/img/littesellca.jpg",
     gitHub: "https://github.com/hoomanhajrian/littlesellca",
-    position3D: [32.5, -7, 40],
+    position3D: [-4.86, 0, -0.88],
+    rotation: [0, -4.32, 0]
   },
   {
     id: 10,
@@ -176,7 +186,8 @@ const appData : ProjectDataType[] = [
       "Website using Next.js technology using react for front end and simple mail service for backend all server side rendered.",
     imgUrl: "/img/pacivil.jpg",
     gitHub: "https://github.com/hoomanhajrian/pacivil",
-    position3D: [32.5, -7, 50],
+    position3D: [-4.23, 0, -2.47],
+    rotation: [0, -4.8, 0]
   },
 
   {
@@ -189,7 +200,8 @@ const appData : ProjectDataType[] = [
       "Website using Next.js technology using react for front end and simple mail service for backend all server side rendered coded for 2 different UIs for 2 languages.",
     imgUrl: "/img/tariq.jpg",
     gitHub: "https://github.com/hoomanhajrian/tariq",
-    position3D: [32.5, -7, 60],
+    position3D: [-3.07, 0, -3.71],
+    rotation: [0, -5.28, 0]
   },
   {
     id: 12,
@@ -201,7 +213,8 @@ const appData : ProjectDataType[] = [
       "Website using Next.js technology using react for front end and simple mail service for backend. Components being rendered on server mostly.",
     imgUrl: "/img/gojunk.jpg",
     gitHub: "https://github.com/hoomanhajrian/gojunk4moving",
-    position3D: [32.5, 7, 70],
+    position3D: [-1.46, 0, -4.54],
+    rotation: [0, -5.76, 0]
   },
 
 ];
