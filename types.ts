@@ -9,4 +9,5 @@ export type ProjectDataType = {
     imgUrl: string;
     gitHub: string;
     position3D: number[];
+    rotation: number[];
 };
