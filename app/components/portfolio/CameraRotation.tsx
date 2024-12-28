@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-export const CameraRotation = ({ radius = 10, speed = 0.01 }: { radius?: number, speed?: number }) => {
+export const CameraRotation = ({ radius = 60, speed = 0.01 }: { radius?: number, speed?: number }) => {
   // mouse coords
   const [globalCoords, setGlobalCoords] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
   const [screenDimention, updateScreenDimentions] = useState<{ width: number, height: number }>({
@@ -42,18 +42,18 @@ export const CameraRotation = ({ radius = 10, speed = 0.01 }: { radius?: number,
 
 
   useFrame(({ camera }) => {
-    if (globalCoords.x > (screenDimention.width / 2) + 150) {
-      angleRef.current += speed; // Increment the angle
-      const x = radius * Math.cos(angleRef.current);
-      const z = radius * Math.sin(angleRef.current);
-      camera.position.set(x, 20, z); // Update camera position
-      camera.lookAt(0, 0, 0); // Ensure the camera looks at the center
-    }
-    else if (globalCoords.x < (screenDimention.width / 2) - 150) {
+    if (globalCoords.x > (screenDimention.width / 2) + 200) {
       angleRef.current -= speed; // Decrement the angle
       const x = radius * Math.cos(angleRef.current);
       const z = radius * Math.sin(angleRef.current);
-      camera.position.set(x, 20, z); // Update camera position
+      camera.position.set(x, 10, z); // Update camera position
+      camera.lookAt(0, 0, 0); // Ensure the camera looks at the center
+    }
+    else if (globalCoords.x < (screenDimention.width / 2) - 200) {
+      angleRef.current += speed; // Increment the angle
+      const x = radius * Math.cos(angleRef.current);
+      const z = radius * Math.sin(angleRef.current);
+      camera.position.set(x, 10, z); // Update camera position
       camera.lookAt(0, 0, 0); // Ensure the camera looks at the center
     }
     else {

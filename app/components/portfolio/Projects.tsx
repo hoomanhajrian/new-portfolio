@@ -32,7 +32,7 @@ export const Projects = () => {
 
   // render on screen size
 
-  if (screenDimention.width <= 900) {
+  if (screenDimention.width <= 1200) {
     return (
       <Project2D projectsData={appData} />
     );
@@ -46,7 +46,7 @@ export const Projects = () => {
 
 const appData: ProjectDataType[] = [
   {
-    id: 0,
+    id: 1,
     name: "Go Hike",
     position: "Full Stack Developer",
     year: " 2020-2021",
@@ -59,7 +59,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, 0, 0]
   },
   {
-    id: 1,
+    id: 2,
     name: "Farmer Fresh",
     position: "Full Stack Developer",
     year: " 2021-2022",
@@ -72,7 +72,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -0.48, 0]
   },
   {
-    id: 2,
+    id: 3,
     name: "Patch App",
     position: "Full Stack Developer",
     year: " 2021-2022",
@@ -86,7 +86,7 @@ const appData: ProjectDataType[] = [
   },
 
   {
-    id: 3,
+    id: 4,
     name: "Movie Time",
     position: "Front End Developer",
     year: " 2022-2023",
@@ -99,7 +99,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -1.44, 0]
   },
   {
-    id: 4,
+    id: 5,
     name: "Wedding Planner",
     position: "Full Stack Developer",
     year: " 2022-2023",
@@ -112,7 +112,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -1.92, 0]
   },
   {
-    id: 5,
+    id: 6,
     name: "Card Creator",
     position: "Full Stack Developer",
     year: " 2022-2023",
@@ -125,7 +125,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -2.4, 0],
   },
   {
-    id: 6,
+    id: 7,
     name: "Tajhiz Aras",
     position: "Full Stack Developer",
     year: " 2022-2023",
@@ -138,7 +138,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -2.88, 0],
   },
   {
-    id: 7,
+    id: 8,
     name: "Hesab Ketab",
     position: "Full Stack Developer",
     year: " 2022-2023",
@@ -151,7 +151,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -3.36, 0]
   },
   {
-    id: 8,
+    id: 9,
     name: "LapseMoon",
     position: "Full Stack Developer",
     year: " 2022-2023",
@@ -164,7 +164,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -3.84, 0]
   },
   {
-    id: 9,
+    id: 10,
     name: "Littlesellca",
     position: "Full Stack Developer",
     year: " 2023-current",
@@ -177,7 +177,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -4.32, 0]
   },
   {
-    id: 10,
+    id: 11,
     name: "Pacivil",
     position: "Full Stack Developer",
     year: " 2023-2024",
@@ -191,7 +191,7 @@ const appData: ProjectDataType[] = [
   },
 
   {
-    id: 11,
+    id: 12,
     name: "Tariq Louis",
     position: "Full Stack Developer",
     year: " 2024-2025",
@@ -204,7 +204,7 @@ const appData: ProjectDataType[] = [
     rotation: [0, -5.28, 0]
   },
   {
-    id: 12,
+    id: 13,
     name: "Gojunk4moving",
     position: "Full Stack Developer",
     year: " 2024-2025",
