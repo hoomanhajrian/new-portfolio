@@ -1,9 +1,28 @@
 @use '../../variables/variables' as variables;
-.footer{
+
+.footer {
     background-color: variables.$lblue;
+    font-weight: bold;
+    max-width: 100%;
     width: 100%;
-    height:100px;
-    position: fixed;
-    left: 0;
-    top:100%;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+text-align: center;
+    .links {
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        color: variables.$dblue;
+        :hover {
+            color: variables.$orange;
+        }
+    }
 }
