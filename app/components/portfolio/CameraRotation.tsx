@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-export const CameraRotation = ({ radius = 60, speed = 0.01 }: { radius?: number, speed?: number }) => {
+export const CameraRotation = ({ radius = 62, speed = 0.01 }: { radius?: number, speed?: number }) => {
   // mouse coords
   const [globalCoords, setGlobalCoords] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
   const [screenDimention, updateScreenDimentions] = useState<{ width: number, height: number }>({
@@ -35,11 +35,6 @@ export const CameraRotation = ({ radius = 60, speed = 0.01 }: { radius?: number,
     }
   }, []);
 
-  useEffect(() => {
-    console.log(globalCoords);
-    console.log(screenDimention.width / 2);
-  }, [globalCoords,screenDimention]);
-
 
   useFrame(({ camera }) => {
     if (globalCoords.x > (screenDimention.width / 2) + 200) {
@@ -61,5 +56,5 @@ export const CameraRotation = ({ radius = 60, speed = 0.01 }: { radius?: number,
     }
   });
 
-  return null; // No need to render anything
+  return null;
 };
