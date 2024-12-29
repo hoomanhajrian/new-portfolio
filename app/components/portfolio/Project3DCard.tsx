@@ -34,10 +34,12 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
       }}
       position={[x, 0, z]}
       rotation={[0, rotationY, 0]} // Adjust rotation to face the center
+      castShadow
+      receiveShadow
     >
       <RoundedBox
         castShadow
-        args={[1, 10, 7]} // Width, height, depth. Default is [1, 1, 1]
+        args={[.2, 10, 7]} // Width, height, depth. Default is [1, 1, 1]
         radius={0.15} // Radius of the rounded corners. Default is 0.05
         smoothness={10} // The number of curve segments. Default is 4
         bevelSegments={4} // The number of bevel segments. Default is 4, setting it to 0 removes the bevel, as a result the texture is applied to the whole geometry.
@@ -46,7 +48,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
         <meshPhongMaterial color={hovered ? "lightBlue" : "#007bff"} />
       </RoundedBox>
       <Text3D
-        position={[0 + 0.4, 0 + 4, 3]}
+        position={[0 + 0.2, 0 + 4, 3]}
         font={"/Source Sans 3 ExtraLight_Regular.json"}
         letterSpacing={-0.06}
         size={0.7}
@@ -56,7 +58,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
         {data.name}
       </Text3D>
       <Text3D
-        position={[0 + 0.4, 0 + 3.3, 3]}
+        position={[0 + 0.2, 0 + 3.3, 3]}
         font={"/Source Sans 3 ExtraLight_Regular.json"}
         letterSpacing={-0.06}
         size={0.4}
@@ -65,7 +67,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
         {data.position}
       </Text3D>
 
-      <Image url={data.imgUrl} position={[0 + .6, 1, 0]} scale={[7, 3]}
+      <Image url={data.imgUrl} position={[0 + .3, 1, 0]} scale={[7, 3]}
         rotation={[0, Math.PI / 2, 0]} />
 
       {/* links */}
@@ -74,7 +76,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
       }}
         onPointerOut={() => {
           updatePointerHover(false);
-        }} onClick={() => { window.open('data.gitHub', '_blank') }} args={[1, 360]} position={[0 + .6, -3, -2]} rotation={[0, Math.PI / 2, 0]}>
+        }} onClick={() => { window.open('data.gitHub', '_blank') }} args={[1, 360]} position={[0 + .3, -3, -2]} rotation={[0, Math.PI / 2, 0]}>
         <meshPhongMaterial map={github} bumpScale={1.3} />
       </Circle>
       <Circle onPointerOver={() => {
@@ -82,7 +84,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
       }}
         onPointerOut={() => {
           updatePointerHover(false);
-        }} onClick={() => { window.open('data.href', '_blank') }} args={[1, 360]} position={[0 + .6, -3, 2]} rotation={[0, Math.PI / 2, 0]}>
+        }} onClick={() => { window.open('data.href', '_blank') }} args={[1, 360]} position={[0 + .3, -3, 2]} rotation={[0, Math.PI / 2, 0]}>
         <meshPhongMaterial map={website} bumpScale={1.3} />
       </Circle>
     </group>
