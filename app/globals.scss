@@ -1,4 +1,5 @@
 @use './sass/main.scss';
+@use './sass/variables/variables' as v;
 
 html,
 body {
@@ -26,11 +27,22 @@ a {
 }
 
 main{
-  padding:130px 2rem 8rem;
+  padding-top:6rem;
+}
+
+h1{
+  font-weight: 700 !important;
+  margin: 0 !important;
+  color: v.$orange !important;
 }
 
 h2{
   align-self: center;
   text-align: center;
   margin: 2rem !important;
+  font-weight: 700;
+}
+
+ul,ol{
+  list-style: none;
 }
