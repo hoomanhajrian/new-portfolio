@@ -1,0 +1,62 @@
+@use '../../variables/variables' as v;
+@use '../../mixins/layouts' as l;
+
+.contact-form {
+    background: v.$lblue;
+    padding: 2rem;
+    color: v.$dblue;
+    margin: 0;
+
+    @include l.xl {
+        margin: 0 2rem;
+    }
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .contact-ad {
+        text-align: center;
+        width: 100%;
+    }
+
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .contact-item {
+        width: 100%;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: .5rem;
+    }
+
+    .form-upload-wrapper {
+        margin: .5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+    }
+
+    .button-wapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .form-submit-button {
+            width: 200px;
+            margin: 1rem auto;
+            padding: .5rem;
+            border-radius: 10px;
+            border: none;
+            
+        }
+        .form-submit-button:hover{
+            background-color: v.$orange;
+            color: white;
+        }
+    }
+}
