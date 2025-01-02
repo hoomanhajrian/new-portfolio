@@ -42,6 +42,7 @@
     "react-bootstrap": "^2.10.7",
     "react-confetti": "^6.2.2",
     "react-dom": "^19.0.0",
+    "react-github-calendar": "^4.5.2",
     "sass": "^1.83.0",
     "three": "^0.171.0"
   },
