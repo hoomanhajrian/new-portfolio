@@ -8,7 +8,7 @@ import { ProjectDataType } from "@/types";
 import Project3DCard from "./Project3DCard";
 import { useRef } from "react";
 
-const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
+export const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
 
   const lightRef = useRef(null);
   const [grassTexture, grassRoughness, grassNormal, grassDisplacement] = useLoader(TextureLoader, ['/textures/grass/grass-texture.png', '/textures/grass/grass-rough.png', '/textures/grass/grass-normal.png', '/textures/grass/grass-height.png']);
@@ -45,4 +45,3 @@ const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
     </Canvas>
   )
 };
-export default Project3D;
