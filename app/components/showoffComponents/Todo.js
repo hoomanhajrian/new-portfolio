@@ -80,7 +80,7 @@ const Todo = () => {
     const removeData = (event) => {
         event.preventDefault();
         const removedItemIndex = event.target.attributes.index.value;
-        updateRows(rows.filter((val, index, arr) => { return index.toString() !== removedItemIndex }));
+        updateRows(rows.filter((val, index) => { return index.toString() !== removedItemIndex }));
         localStorage.setItem("todoList", JSON.stringify(rows));
     };
 

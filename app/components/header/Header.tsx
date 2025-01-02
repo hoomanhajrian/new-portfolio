@@ -15,8 +15,6 @@ export const Header = () => {
     initialDirection: "up",
     thresholdPixels: 10,
   });
-  const [windowWidth, setWindowDimensions] = useState<number | undefined>();
-  const [scrollY, setScrollY] = useState<number | undefined>();
   const [activeLink, updateActiveLink] = useState<string>("/");
 
   useEffect(() => {
@@ -50,23 +48,6 @@ export const Header = () => {
     }
   }, [scrollDirection]);
 
-  useEffect(() => {
-    setWindowDimensions(window.innerWidth);
-    function handleResize() {
-      setWindowDimensions(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrollY(window.scrollY);
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // closes the navbar on outside click
   useEffect(() => {

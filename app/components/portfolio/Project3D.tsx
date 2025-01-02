@@ -1,16 +1,14 @@
 import { Canvas } from "@react-three/fiber";
-import { Circle, SpotLight } from "@react-three/drei";
+import { Circle } from "@react-three/drei";
 import { CameraRotation } from "./CameraRotation";
 // import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useLoader } from "@react-three/fiber";
 import { ProjectDataType } from "@/types";
 import Project3DCard from "./Project3DCard";
-import { useRef } from "react";
 
 export const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
 
-  const lightRef = useRef(null);
   const [grassTexture, grassRoughness, grassNormal, grassDisplacement] = useLoader(TextureLoader, ['/textures/grass/grass-texture.png', '/textures/grass/grass-rough.png', '/textures/grass/grass-normal.png', '/textures/grass/grass-height.png']);
 
   return (

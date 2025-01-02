@@ -8,7 +8,7 @@ const Button3D = ({ func, position, text, projects, about, args, textPos, rotati
   const [pointerHovered, updatePointerHover] = useState(false);
   const buttonRef  = useRef(null);
 
-  useFrame(({ gl, camera }) => {
+  useFrame(({ camera }) => {
     if (about !== undefined && projects !== undefined) {
       // projects animation
       if (!about && projects && camera.rotation.y >= -Math.PI / 2.4) {

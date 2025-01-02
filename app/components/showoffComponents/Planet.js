@@ -10,7 +10,7 @@ const Planet = (props) => {
   const ref = useRef();
 
   let t = 0;
-  useFrame((state, delta) => {
+  useFrame(() => {
     t += props.speed ? props.speed : null;
     ref.current.position.x = props.rotationValue * Math.cos(t) + 0;
     ref.current.position.z = props.rotationValue * Math.sin(t) + 0; // These to strings make it work

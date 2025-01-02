@@ -82,7 +82,7 @@ const GameContainer = () => {
                             onClick={startGame}
                             sx={{ mt: 1, mr: 1 }}
                             variant="outlined">
-                            Let's do it
+                            Let&aspo;s do it
                         </Button>
                     </FormControl>
                 </form>

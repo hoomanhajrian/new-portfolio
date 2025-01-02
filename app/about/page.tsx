@@ -1,4 +1,5 @@
 import { Github } from "../components/github/Github";
+import Image from "next/image";
 
 const About = () => {
 
@@ -6,7 +7,7 @@ const About = () => {
     <div className="about">
       <h2>About me</h2>
       <div className="about-me-wrapper">
-        <img src="/img/me.jpg" alt="hooman-hajarian" className="my-picture" />
+        <Image width={100} height={150} src="/img/me.jpg" alt="hooman-hajarian" className="my-picture" />
         <p className="aboutme">
           This website is just an asset for me to show off part of my skills and
           my resume to help me find my place in tech industry as a full stack

@@ -5,7 +5,7 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import { styled } from '@mui/material/styles';
-import { TableCell, tableCellClasses, TableRow, TabPanel, updateRows } from '@mui/material';
+import { TableCell, tableCellClasses, TableRow, TabPanel, updateRows,Checkbox,Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -34,25 +34,7 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-    return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
-    };
-}
-
 const TodoTable = () => {
-    const theme = useTheme();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
-
 
     const removeData = (event) => {
         const removedItemIndex = event.target.attributes.index.value;
@@ -62,7 +44,7 @@ const TodoTable = () => {
     const checkboxChangeHandel = (event) => {
         const updatedCheckedItemIndex = event.target.attributes.id.value;
         rows[updatedCheckedItemIndex].completed = event.target.checked;
-        updateRows(oldRows => rows);
+        updateRows(() => rows);
         changeOrgRows(rows);
     };
 

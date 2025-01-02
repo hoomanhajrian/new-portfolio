@@ -53,7 +53,7 @@ const BarChart = () => {
     const randomData = () => {
         const newData = [];
         const randomNumbers = () => {
-            data.forEach(e => { newData.push(Math.floor(Math.random() * 200)) });
+            data.forEach(() => { newData.push(Math.floor(Math.random() * 200)) });
         };
         randomNumbers();
         setData([

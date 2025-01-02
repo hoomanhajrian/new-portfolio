@@ -1,6 +1,5 @@
 import { Button } from 'antd';
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { useState } from 'react';
 
 
 
@@ -14,7 +13,7 @@ const Ball = (props) => {
                     position: "relative",
                     top: `${props.y - 220}px`,
                     left: `${props.x - 100}px`,
-                    padding: "2rem",
+                    padding: "2rem",    
                     borderRadius: "50%",
                     backgroundColor: "red",
                     '& span': {

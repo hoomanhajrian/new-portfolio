@@ -18,7 +18,7 @@ const Map = () => {
     });
     const zoom = 13;
 
-    const getMapOptions = (maps) => {
+    const getMapOptions = () => {
         return {
             disableDefaultUI: true,
             mapTypeControl: true,

@@ -1,6 +1,5 @@
 "use client";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Card, CardContent, CardMedia } from "@material-ui/core";
