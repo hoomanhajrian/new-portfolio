@@ -58,9 +58,9 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
         {data.name}
       </Text3D>
       <Text3D
-        position={[0 + 0.2, 0 + 3.3, 3]}
+        position={[0 + 0.2, 0 + 3.2, 3]}
         font={"/Source Sans 3 ExtraLight_Regular.json"}
-        letterSpacing={-0.06}
+        letterSpacing={-0.01}
         size={0.4}
         rotation={[0, Math.PI / 2, 0]}
       >

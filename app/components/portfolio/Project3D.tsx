@@ -8,7 +8,7 @@ import { ProjectDataType } from "@/types";
 import Project3DCard from "./Project3DCard";
 import { useRef } from "react";
 
-export const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
+const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] }) => {
 
   const lightRef = useRef(null);
   const [grassTexture, grassRoughness, grassNormal, grassDisplacement] = useLoader(TextureLoader, ['/textures/grass/grass-texture.png', '/textures/grass/grass-rough.png', '/textures/grass/grass-normal.png', '/textures/grass/grass-height.png']);
@@ -27,7 +27,7 @@ export const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] })
       {/* <OrbitControls/> */}
       <CameraRotation />
       <ambientLight intensity={.8} />
-      
+
       {/*3d card objects */}
       {projectsData.map((data: ProjectDataType) => {
         const angle = (data.id / projectsData.length) * 2 * Math.PI; // Spread cards evenly
@@ -45,3 +45,4 @@ export const Project3D = ({ projectsData }: { projectsData: ProjectDataType[] })
     </Canvas>
   )
 };
+export default Project3D;
