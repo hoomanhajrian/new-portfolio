@@ -1,8 +1,8 @@
 
 "use client";
-import { useState, FC, useRef } from "react";
+import { useState, FC, useRef, BaseSyntheticEvent } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Select, MenuItem, Button, styled } from "@mui/material";
+import { Select, MenuItem, Button, styled, SelectChangeEvent } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -23,7 +23,6 @@ const VisuallyHiddenInput = styled("input")({
 export const ContactForm: FC = () => {
   const [loading, setLoading] = useState(false);
   const [name, updateName] = useState("");
-  const [company, updateCompany] = useState("");
   const [email, updateEmail] = useState("");
   const [phone, updatePhone] = useState("");
   const [file, updateFile] = useState<File | null>();
@@ -39,13 +38,12 @@ export const ContactForm: FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   // contact form functionality
-  const sendEmail = async (e: any) => {
+  const sendEmail = async (e: BaseSyntheticEvent) => {
     e.preventDefault();
 
     setLoading(true);
     if (
       name != "" &&
-      company != "" &&
       email != "" &&
       phone.length > 2 &&
       request != "" &&
@@ -57,7 +55,6 @@ export const ContactForm: FC = () => {
           file
             ? {
               name: name,
-              company: company,
               email: email,
               phone: phone,
               request: request,
@@ -66,7 +63,6 @@ export const ContactForm: FC = () => {
             }
             : {
               name: name,
-              company: company,
               email: email,
               phone: phone,
               request: request,
@@ -128,7 +124,8 @@ export const ContactForm: FC = () => {
     }
   };
   // when another file is being uploaded
-  const changeFile = async (e: any) => {
+  const changeFile = async (e: BaseSyntheticEvent) => {
+    
     if (
       e.target.files[0].type === "application/pdf" ||
       e.target.files[0].type === "application/msword" ||
@@ -170,9 +167,8 @@ export const ContactForm: FC = () => {
             <input
               required
               type="text"
-              id="fname"
               name="fname"
-              onChange={(e: any) => {
+              onChange={(e: BaseSyntheticEvent) => {
                 updateName(e.target.value);
               }}
             />
@@ -181,9 +177,8 @@ export const ContactForm: FC = () => {
             <label htmlFor="email">EMAIL *</label>
             <input
               type="email"
-              id="email"
               name="email"
-              onChange={(e: any) => {
+              onChange={(e: BaseSyntheticEvent) => {
                 updateEmail(e.target.value);
               }}
             />
@@ -197,11 +192,10 @@ export const ContactForm: FC = () => {
               type="tel"
               minLength={0}
               maxLength={16}
-              id="phone"
               pattern="\+?[0-9]*"
               placeholder="+1(123)-456-7890"
               name="phone"
-              onChange={(e: any) => {
+              onChange={(e: BaseSyntheticEvent) => {
                 e.target.value = phoneRef.current?.value.replace(/[^0-9+]/g, '');
                 updatePhone(e.target.value);
               }}
@@ -212,11 +206,10 @@ export const ContactForm: FC = () => {
             <textarea
               ref={textAreaRef}
               required
-              id="message"
               name="message"
               rows={7}
               style={{ resize: "none" }}
-              onChange={(e: any) => {
+              onChange={(e: BaseSyntheticEvent) => {
                 updateMessage(e.target.value);
               }}
             ></textarea>
@@ -225,9 +218,8 @@ export const ContactForm: FC = () => {
             <label htmlFor="need">I NEED HELP WITH...</label>
             <Select
               required
-              id="need"
               name="need"
-              onChange={(e: any) => {
+              onChange={(e: SelectChangeEvent<string>) => {
                 updateRequest(e.target.value);
               }}
               displayEmpty
@@ -286,7 +278,6 @@ export const ContactForm: FC = () => {
             <VisuallyHiddenInput
               type="file"
               accept=".doc,.docx,.pdf"
-              id="file"
               name="file"
               ref={fileRef}
               onChange={changeFile}
