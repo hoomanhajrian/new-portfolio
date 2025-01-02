@@ -7,14 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -36,7 +28,9 @@ h1{
   color: v.$orange !important;
 }
 
-h2{
+h2,h3{
+  font-weight: 500 !important;
+  color: v.$orange !important;
   align-self: center;
   text-align: center;
   margin: 2rem !important;
