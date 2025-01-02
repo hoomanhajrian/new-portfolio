@@ -1,0 +1,67 @@
+@use '../../mixins/layouts' as l;
+.about {
+    padding: 2rem;
+    width: 100%;
+   
+    ul {
+      padding-left: 0;
+      li {
+        list-style-type: none;
+      }
+    }
+    .contact-form {
+      max-width: 60%;
+      width: 60%;
+      margin-right: auto;
+      margin-left: 15%;
+      margin-top: 2rem;
+      @include l.sm {
+        margin-left: auto;
+      }
+      .ant-input {
+        border-radius: 5px 5px 5px 5px;
+      }
+      .ant-btn {
+        border-radius: 5px;
+      }
+    }
+    .message {
+      display: block;
+      margin: 2rem auto;
+      width: 50%;
+      font-weight: bold;
+    }
+  
+    .about-me-wrapper {
+      width: 70%;
+      margin-right: auto;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      .aboutme {
+        width: 90%;
+        margin: 0;
+      }
+      .my-picture {
+        max-width: 100px;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+      }
+  
+      @include l.xl {
+        flex-direction: row;
+        .aboutme {
+          margin-left: 1rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+    .aboutme {
+      text-align: left;
+      width: 70%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  
