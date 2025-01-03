@@ -84,11 +84,8 @@ export const ContactForm: FC = () => {
             });
             setTimeout(() => {
               updateErrorMessage({ message: "", color: "" });
-
               updateFile(null);
-              {
-                fileRef.current ? ()=>{fileRef.current && (fileRef.current.value = "")} : null;
-              }
+              fileRef.current ? () => { fileRef.current && (fileRef.current.value = "") } : null;
               formRef.current?.reset();
             }, 4000);
           } else {
@@ -125,14 +122,14 @@ export const ContactForm: FC = () => {
   };
   // when another file is being uploaded
   const changeFile = async (e: BaseSyntheticEvent) => {
-    
+
     if (
       e.target.files[0].type === "application/pdf" ||
       e.target.files[0].type === "application/msword" ||
       e.target.files[0].type ===
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
-      let file: File = e.target.files[0];
+      const file: File = e.target.files[0];
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
       updateFileData(buffer);
