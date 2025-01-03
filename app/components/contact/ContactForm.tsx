@@ -87,7 +87,7 @@ export const ContactForm: FC = () => {
 
               updateFile(null);
               {
-                fileRef.current ? (fileRef.current.value = "") : null;
+                fileRef.current ? fileRef.current && (fileRef.current.value = "") : null;
               }
               formRef.current?.reset();
             }, 4000);

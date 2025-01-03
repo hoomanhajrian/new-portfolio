@@ -1,4 +1,4 @@
-// 2D Data Types
+//Projects Data Type
 export type ProjectDataType = {
     id: number;
     name: string;

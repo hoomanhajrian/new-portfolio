@@ -68,7 +68,7 @@ const Project3DCard = ({ data, angle, radius = 30 }: { data: ProjectDataType, an
       </Text3D>
 
       <Image url={data.imgUrl} position={[0 + .3, 1, 0]} scale={[7, 3]}
-        rotation={[0, Math.PI / 2, 0]} />
+        rotation={[0, Math.PI / 2, 0]} alt={data.name} />
 
       {/* links */}
       <Circle onPointerOver={() => {
