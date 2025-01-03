@@ -85,7 +85,9 @@ export const ContactForm: FC = () => {
             setTimeout(() => {
               updateErrorMessage({ message: "", color: "" });
               updateFile(null);
-              fileRef.current ? fileRef.current && (fileRef.current.value = "") : null;
+              if (fileRef.current) {
+                fileRef.current.value = "";
+              }
               formRef.current?.reset();
             }, 4000);
           } else {
